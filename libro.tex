@@ -1,0 +1,99 @@
+\documentclass[pregrado]{tesis-usb}
+
+% paquetes
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{wallpaper}
+\usepackage{dirtytalk}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext, newtxmath}
+\usepackage{url}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{xparse}
+\newcommand{\Csh}{C\includegraphics{hash-symbol}}
+\graphicspath{ {./images/} }
+\baselinestretch
+\renewcommand{\baselinestretch}{1.5}
+\geometry{{margin = 3cm, 2.5cm, 2.5cm, 2.5cm}}
+
+\pagenumbering{arabic}
+
+% estilo de las referencias
+\bibliographystyle{plain}
+
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+\newcounter{oldtocdepth}
+
+\newcommand{\hidefromtoc}{%
+  \setcounter{oldtocdepth}{\value{tocdepth}}%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-10}}%
+}
+
+\newcommand{\unhidefromtoc}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{\value{oldtocdepth}}}%
+}
+
+\setlength{\parskip}{1.4em}
+\title{\large{APLICACIÓN DE LAS 3R DE LA ECOLOGÍA EN EL\\
+ÁMBITO DOMÉSTICO PARA EL\\ 
+ADECUADO MANEJO DE LOS DESECHOS SÓLIDOS EN\\[0.2cm]
+URBANIZACIÓN GUARAGUAO CAMPO OBRERO}
+}
+
+\author{\textup{Diego Ortiz}}
+\makeatletter
+
+\let \@sverbatim \@verbatim
+\def \@verbatim {\@sverbatim \verbatimplus}
+{\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }} 
+\makeatother
+
+\setlength{\parindent}{7ex}
+
+\begin{document}
+
+\setlength{\parskip}{1.2em}
+\frontmatter
+\input{title/title.tex}
+\input{01 Jurado}
+\input{02 dedicatoria}
+\input{03 agradecimientos}
+\mainmatter
+\setcounter{page}{1}
+\tableofcontents
+% \listoffigures
+% \listoftables
+% \lstlistoflistings
+% \input{notacion}
+
+\mainmatter
+
+\input{04 resumen}
+\input{05 intro}
+\input{06 capitulo 1}
+\input{07 capitulo 2}
+\input{08 capitulo 3}
+\input{09 resultados}
+\input{10 conclusiones}
+\nocite{*}
+\bibliography{referencias.bib}
+\input{11 anexos}
+
+% \appendix
+%\input{10 apendice-a}
+
+\end{document}
