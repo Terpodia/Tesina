@@ -1,3 +1,4 @@
+%clase del documento
 \documentclass[pregrado]{tesis-usb}
 
 % paquetes
@@ -18,24 +19,26 @@
 \usepackage{etoolbox}
 \usepackage{titlesec}
 \usepackage[spanish]{babel}
+\usepackage[fixlanguage]{babelbib}
 \usepackage{listings}
 \usepackage{setspace}
 \usepackage{xparse}
 \newcommand{\Csh}{C\includegraphics{hash-symbol}}
 \graphicspath{ {./images/} }
-\baselinestretch
-\renewcommand{\baselinestretch}{1.5}
-\geometry{{margin = 3cm, 2.5cm, 2.5cm, 2.5cm}}
 
-\pagenumbering{arabic}
+\baselinestretch
+\renewcommand{\baselinestretch}{1.5} % configurar tamaño interlineado base
+\geometry{{margin = 3cm, 2.5cm, 2.5cm, 2.5cm}} % configurar márgenes
 
 % estilo de las referencias
-\bibliographystyle{plain}
+\bibliographystyle{apalike} % estilo de las normas APA
 
+% configuración de espaciado de los capítulos
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
 \makeatother
 
+% configuración para ocultar secciones del índice
 \newcounter{oldtocdepth}
 
 \newcommand{\hidefromtoc}{%
@@ -47,13 +50,14 @@
   \addtocontents{toc}{\protect\setcounter{tocdepth}{\value{oldtocdepth}}}%
 }
 
-\setlength{\parskip}{1.4em}
+% configurando el título del proyecto
 \title{\large{APLICACIÓN DE LAS 3R DE LA ECOLOGÍA EN EL\\
 ÁMBITO DOMÉSTICO PARA EL\\ 
 ADECUADO MANEJO DE LOS DESECHOS SÓLIDOS EN\\[0.2cm]
 URBANIZACIÓN GUARAGUAO CAMPO OBRERO}
 }
 
+% configurando el autor
 \author{\textup{Diego Ortiz}}
 \makeatletter
 
@@ -62,38 +66,33 @@ URBANIZACIÓN GUARAGUAO CAMPO OBRERO}
 {\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }} 
 \makeatother
 
+% configurando el tamaño de la sangría
 \setlength{\parindent}{7ex}
 
+% comienzo del documento
 \begin{document}
+    \setlength{\parskip}{1em} % espaciado entre párrafos
+    
+    \frontmatter % colocar números romanos
+    \input{title/title.tex} % colocar portada
+    \input{01 Jurado} % colocar página de los jurados
+    \input{02 dedicatoria} % colocar página de la dedicatoria
+    \input{03 agradecimientos} % colocar página de los agradecimientos
+    \mainmatter % regresar a la enumeración en números arábigos
+    \setcounter{page}{1} % empezar el contador a partir del índice en 1
+    \tableofcontents % colocar índice
 
-\setlength{\parskip}{1.2em}
-\frontmatter
-\input{title/title.tex}
-\input{01 Jurado}
-\input{02 dedicatoria}
-\input{03 agradecimientos}
-\mainmatter
-\setcounter{page}{1}
-\tableofcontents
-% \listoffigures
-% \listoftables
-% \lstlistoflistings
-% \input{notacion}
+    \newpage
 
-\mainmatter
-
-\input{04 resumen}
-\input{05 intro}
-\input{06 capitulo 1}
-\input{07 capitulo 2}
-\input{08 capitulo 3}
-\input{09 resultados}
-\input{10 conclusiones}
-\nocite{*}
-\bibliography{referencias.bib}
-\input{11 anexos}
-
-% \appendix
-%\input{10 apendice-a}
-
+    \input{04 resumen} % colocar página del resumen
+    \input{05 intro} % colocar página de la introducción
+    \input{06 capitulo 1} % colocar página del capítulo 1
+    \input{07 capitulo 2} % colocar página del capítulo 2
+    \input{08 capitulo 3} % colocar página del capítulo 3
+    \input{09 resultados} % colocar página del capítulo 4
+    \input{10 conclusiones} % colocar página del capítulo 1
+    \nocite{*}
+    \bibliography{referencias.bib} % colocar página de referencias
+    \input{11 anexos} % colocar página de anexos
 \end{document}
+% final del documento
