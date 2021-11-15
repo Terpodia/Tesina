@@ -19,19 +19,22 @@
 \usepackage{etoolbox}
 \usepackage{titlesec}
 \usepackage[spanish]{babel}
-\usepackage[fixlanguage]{babelbib}
 \usepackage{listings}
 \usepackage{setspace}
 \usepackage{xparse}
+\usepackage{csquotes}
+
+% configuración de referencias
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa} % configuración del lenguaje
+\addbibresource{referencias.bib} % utilizar archivo referencias.bib para la bibliografía 
+
 \newcommand{\Csh}{C\includegraphics{hash-symbol}}
 \graphicspath{ {./images/} }
 
 \baselinestretch
 \renewcommand{\baselinestretch}{1.5} % configurar tamaño interlineado base
 \geometry{{margin = 3cm, 2.5cm, 2.5cm, 2.5cm}} % configurar márgenes
-
-% estilo de las referencias
-\bibliographystyle{apalike} % estilo de las normas APA
 
 % configuración de espaciado de los capítulos
 \makeatletter
@@ -92,7 +95,7 @@ URBANIZACIÓN GUARAGUAO CAMPO OBRERO}
     \input{09 resultados} % colocar página del capítulo 4
     \input{10 conclusiones} % colocar página del capítulo 1
     \nocite{*}
-    \bibliography{referencias.bib} % colocar página de referencias
+    \printbibliography
     \input{11 anexos} % colocar página de anexos
 \end{document}
-% final del documento
+% final del documento ;D
