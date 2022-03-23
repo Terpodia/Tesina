@@ -617,7 +617,7 @@
 \newcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
                     \ifacronymactive\acresetall\typeout{TESIS-USB: resetting all acronyms}\fi%
                     \if@mainmatter
-                      \thispagestyle{empty}%
+                      \thispagestyle{fancy}%
                     \else
                       \thispagestyle{fancy}%
                     \fi
@@ -681,15 +681,15 @@
 \newcommand\section{\@startsection{section}{1}{\z@}%
                    {-3ex \@plus -1ex \@minus -.2ex}%
                    {5ex \@plus .2ex}%
-                   {\normalfont\normalsize\bfseries\singlespace}}
+                   {\normalfont\normalsize\bfseries\onehalfspacing}}
 \newcommand\subsection{\@startsection{subsection}{2}{\z@}%
                       {-3ex \@plus -1ex \@minus -.2ex}%
                       {5ex \@plus .2ex}%
-                      {\normalfont\normalsize\bfseries\singlespace}}
+                      {\normalfont\normalsize\bfseries\onehalfspacing}}
 \newcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                          {-3ex \@plus -1ex \@minus -.2ex}%
                          {5ex \@plus .2ex}%
-                         {\normalfont\normalsize\bfseries\singlespace}}
+                         {\normalfont\normalsize\bfseries\onehalfspacing}}
 \newcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                      {3ex \@plus 1ex \@minus .2ex}%
                      {-1em}%
@@ -797,7 +797,7 @@
   \setcounter{chapter}{0}%
   \setcounter{chaptert}{0}%---
   \setcounter{section}{0}%
-  \gdef\@chapapp{\appendixname}%
+  \gdef\@chapapp{Anexos }%
   \gdef\thechapter{\@Alph\c@chapter}%
   \gdef\thechaptert{\@Alph\c@chaptert}}%---
 \setlength\arraycolsep{5\p@}
@@ -881,7 +881,6 @@
 \newcommand*\l@part[2]{%
   \ifnum \c@tocdepth >-2\relax
     \addpenalty{-\@highpenalty}%
-    \addvspace{2.25em \@plus\p@}%
     \setlength\@tempdima{3em}%
     \begingroup
       \parindent \z@ \rightskip \@pnumwidth

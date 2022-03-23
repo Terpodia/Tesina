@@ -23,6 +23,8 @@
 \usepackage{setspace}
 \usepackage{xparse}
 \usepackage{csquotes}
+\usepackage{setspace}
+\usepackage[labelfont=bf]{caption}
 
 % configuración de referencias
 \usepackage[backend=biber,style=apa]{biblatex}
@@ -56,7 +58,7 @@
 % configurando el título del proyecto
 \title{\large{APLICACIÓN DE LAS 3R DE LA ECOLOGÍA EN EL\\
 ÁMBITO DOMÉSTICO PARA EL\\ 
-ADECUADO MANEJO DE LOS DESECHOS SÓLIDOS EN\\[0.2cm]
+ADECUADO MANEJO DE LOS DESECHOS SÓLIDOS EN LA\\[0.2cm]
 URBANIZACIÓN GUARAGUAO DE PUERTO LA CRUZ}
 }
 
@@ -81,12 +83,17 @@ URBANIZACIÓN GUARAGUAO DE PUERTO LA CRUZ}
     \input{01 Jurado} % colocar página de los jurados
     \input{02 dedicatoria} % colocar página de la dedicatoria
     \input{03 agradecimientos} % colocar página de los agradecimientos
+
     \mainmatter % regresar a la enumeración en números arábigos
     \setcounter{page}{1} % empezar el contador a partir del índice en 1
     \tableofcontents % colocar índice
-
     \newpage
-
+    \listoffigures % colocar lista de figuras
+    \newpage
+    siguiente página del índice de figuras
+    \newpage
+    \listoftables
+    \newpage
     \input{04 resumen} % colocar página del resumen
     \input{05 intro} % colocar página de la introducción
     \input{06 capitulo 1} % colocar página del capítulo 1
@@ -95,7 +102,9 @@ URBANIZACIÓN GUARAGUAO DE PUERTO LA CRUZ}
     \input{09 resultados} % colocar página del capítulo 4
     \input{10 conclusiones} % colocar página del capítulo 1
     \nocite{*}
+    {\setlength{\parskip}{-0.5cm}
     \printbibliography
+    }
     \input{11 anexos} % colocar página de anexos
 \end{document}
 % final del documento ;D
